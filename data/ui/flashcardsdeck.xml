@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"></requires>
+  <template class="FlashcardsDeck" parent="GtkBox">
+    <property name="height-request">250</property>
+
+    <style>
+      <class name="card"></class>
+    </style>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-start">20</property>
+        <property name="margin-end">20</property>
+        <property name="margin-top">20</property>
+        <property name="margin-bottom">20</property>
+        <property name="spacing">10</property>
+        <property name="hexpand">true</property>
+        <property name="halign">center</property>
+
+        <child>
+          <object class="GtkLabel">
+            <property name="label">TeTeOS.Net GNOME PiluX Flashcards GNOME Circle</property>
+            <property name="wrap">true</property>
+            <property name="lines">4</property>
+            <property name="max-width-chars">20</property>
+            <property name="justify">center</property>
+            <property name="ellipsize">end</property>
+
+            <style>
+              <class name="title-1"></class>
+            </style>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkBox">
+            <property name="halign">center</property>
+            <child>
+              <object class="GtkLabel" id="lbl_card_num">
+                <property name="label" translatable="true">0 cards</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="vexpand">true</property>
+            <property name="valign">end</property>
+            <property name="spacing">12</property>
+
+            <child>
+              <object class="GtkButton">
+                <property name="action-name">app.study</property>
+
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">media-playback-start-symbolic</property>
+                    <property name="label" translatable="true">Exercise</property>
+                  </object>
+                </child>
+
+                <style>
+                  <class name="pill"></class>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkButton" id="btn_study">
+                <property name="action-name">app.study</property>
+                <style>
+                  <class name="suggested-action"></class>
+                  <class name="pill"></class>
+                </style>
+
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">edit</property>
+                    <property name="label" translatable="true">Study</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

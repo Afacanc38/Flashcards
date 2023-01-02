@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/afacanc38/flashcards/">
+    <file preprocess="xml-stripblanks" compressed="true">ui/mainwindow.xml</file>
+    <file preprocess="xml-stripblanks" compressed="true">ui/flashcardsdeck.xml</file>
+    <file preprocess="xml-stripblanks" compressed="true">ui/flashcard.xml</file> 
+    <file preprocess="xml-stripblanks" compressed="true">ui/study.xml</file>
+    <file preprocess="xml-stripblanks" compressed="true">ui/shortcuts.xml</file>
+    <file compressed="true" preprocess="xml-stripblanks">icons/scalable/actions/flashcard-deck-symbolic.svg</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"></requires>
+  <template class="FlashcardsWindow" parent="AdwApplicationWindow">
+    <style>
+      <class name="devel"></class>
+    </style>
+    <property name="default-width">800</property>
+    <property name="default-height">600</property>
+    <property name="width-request">450</property>
+    <property name="height-request">400</property>
+    
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        
+        <child>
+          <object class="AdwHeaderBar">
+            <property name="centering-policy">strict</property>
+
+            <child></child>
+
+            <property name="title-widget">
+              <object class="AdwSqueezer">
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+
+                <child>
+                  <object class="AdwViewSwitcher">
+                    <property name="stack">stk_main</property>
+                    <property name="policy">wide</property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwViewSwitcher">
+                    <property name="stack">stk_main</property>
+                    <property name="policy">narrow</property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwWindowTitle">
+                    <property name="title" translatable="yes">Flashcards</property>
+                  </object>
+                </child>
+              </object>
+            </property>
+
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="menu-model">menu_app</property>
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="primary">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwViewStack" id="stk_main">
+            <child>
+              <object class="AdwViewStackPage">
+                <property name="name">overview</property>
+                <property name="title" translatable="yes">Overview</property>
+                <property name="icon-name">go-home-symbolic</property>
+
+                <property name="child">
+                  <object class="GtkScrolledWindow">
+                    <property name="vexpand">true</property>
+                    
+                    <child>
+                      <object class="AdwClamp">
+                        <child>                        
+                          <object class="AdwStatusPage">
+                            <property name="title" translatable="yes">Overview</property>
+                            <property name="icon-name">go-home-symbolic</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwViewStackPage">
+                <property name="name">decks</property>
+                <property name="title" translatable="yes">Decks</property>
+                <property name="icon-name">flashcard-deck</property>
+
+                <property name="child">
+                  <object class="GtkScrolledWindow">
+                    <property name="vexpand">true</property>
+
+                    <child>
+                      <object class="AdwClamp">
+                        <property name="valign">start</property>
+                        <property name="margin-start">20</property>
+                        <property name="margin-end">20</property>
+                        <property name="margin-top">20</property>
+                        <property name="margin-bottom">20</property>
+
+                        <child>
+                          <object class="GtkFlowBox">
+                            <!-- <property name="max-children-per-line">2</property> -->
+                            <property name="min-children-per-line">2</property>
+                            <property name="selection-mode">none</property>
+
+                            <child>
+                              <object class="FlashcardsDeck">
+                                <style>
+                                  <class name="card"></class>
+                                </style>
+                              </object>
+                            </child>
+
+                            <child>
+                              <object class="FlashcardsDeck">
+                                <style>
+                                  <class name="card"></class>
+                                </style>
+                              </object>
+                            </child>
+
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          
+        </child>
+      </object>
+    </child>
+
+  </template>
+  <menu id="menu_app">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Preferences</attribute>
+        <attribute name="action" translatable="yes">app.preferences</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="true">Keyboard Shortcuts</attribute>
+        <attribute name="action">app.shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="true">About Flashcards</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

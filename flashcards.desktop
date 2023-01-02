@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Flashcards
+Exec=/bin/python3 /home/alperen/Projeler/Flashcards/flashcards/main.py
+Icon=io.github.afacanc38.Flashcards
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;Utility;
+StartupNotify=true
+# Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+Keywords=Utility;Exercise;Cards;Education;
+X-Purism-FormFactor=Workstation;Mobile;

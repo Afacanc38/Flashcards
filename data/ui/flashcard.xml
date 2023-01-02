@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"></requires>
+  <template class="FlashcardsFlashcard" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="hexpand">true</property>
+    <property name="vexpand">true</property>
+    <property name="margin-start">20</property>
+    <property name="margin-end">20</property>
+    <property name="margin-top">20</property>
+    <property name="margin-bottom">20</property>
+
+    <style>
+      <class name="card"></class>
+    </style>
+  </template>
+</interface>

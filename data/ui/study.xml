@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"></requires>
+  <template class="FlashcardsStudyWindow" parent="AdwWindow">
+    <property name="resizable">false</property>
+    <property name="width-request">300</property>
+    <property name="height-request">400</property>
+
+    <style>
+      <class name="devel"></class>
+    </style>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+
+        <child>
+          <object class="AdwHeaderBar">
+            <property name="title-widget">
+              <object class="GtkLabel" id="lbl_remaining_card_num">
+                <property name="label" translatable="true">Card 0/5</property>
+                <style>
+                  <class name="title"></class>
+                </style>
+              </object>
+            </property>
+            <style>
+              <class name="flat"></class>
+            </style>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwCarousel">
+          
+          <child>
+            <object class="FlashcardsFlashcard">
+            </object>
+          </child>
+
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </template>
+</interface>
