@@ -94,9 +94,8 @@ class FlashcardsFlashcard(Gtk.Box):
     lbl_front = Gtk.Template.Child('lbl_front')
 
     _show_answer = False
-    GObject.Property(type=bool, default=False)
 
-    @property
+    @GObject.Property(type=bool, default=False)
     def show_answer(self):
         return self._show_answer
 
