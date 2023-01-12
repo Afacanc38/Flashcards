@@ -153,17 +153,17 @@ class Application(Adw.Application):
         GLib.set_application_name('Flashcards')
         GLib.set_prgname('Flashcards')
 
-        act_show_about = Gio.SimpleAction(name='about')
-        act_show_about.connect('activate', self.on_about)
-        self.add_action(act_show_about)
+        act = Gio.SimpleAction(name='about')
+        act.connect('activate', self.on_about)
+        self.add_action(act)
 
-        act_show_shortcuts = Gio.SimpleAction(name='shortcuts')
-        act_show_shortcuts.connect('activate', self.on_show_shortcuts)
-        self.add_action(act_show_shortcuts)
+        act = Gio.SimpleAction(name='shortcuts')
+        act.connect('activate', self.on_show_shortcuts)
+        self.add_action(act)
 
-        act_study = Gio.SimpleAction(name='study')
-        act_study.connect('activate', self.on_study)
-        self.add_action(act_study)
+        act = Gio.SimpleAction(name='study')
+        act.connect('activate', self.on_study)
+        self.add_action(act)
 
         self.set_accels_for_action("window.close", ("<Ctrl>q","<Ctrl>w"))
         self.set_accels_for_action("app.shortcuts", ("<Ctrl>question",))
