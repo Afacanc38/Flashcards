@@ -72,7 +72,6 @@ class FlashcardsStudyWindow(Adw.Window):
         self.lbl_remaining_card_num.set_label(f'Card {self.position + 1}/{self.card_num}')
         if self.position == self.card_num -1:
             self.btn_next_flashcard.set_label("Close")
-            self.btn_add_to_repeat.set_visible(False)
 
     def on_btn_next_flashcard_clicked(self, button):
         if self.position != self.card_num -1:
