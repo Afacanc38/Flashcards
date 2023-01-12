@@ -1,5 +1,5 @@
 #!/bin/bash
-cd data/
+cd /home/alperen/Projeler/Flashcards/data/
 glib-compile-resources io.github.afacanc38.flashcards.gresource.xml
 python3 ../flashcards/main.py
-cd ..
+cd /home/alperen/Projeler/Flashcards

@@ -26,20 +26,6 @@
                 <property name="margin-end">20</property>
 
                 <child>
-                  <object class="AdwViewSwitcher">
-                    <property name="stack">stk_main</property>
-                    <property name="policy">wide</property>
-                  </object>
-                </child>
-
-                <child>
-                  <object class="AdwViewSwitcher">
-                    <property name="stack">stk_main</property>
-                    <property name="policy">narrow</property>
-                  </object>
-                </child>
-
-                <child>
                   <object class="AdwWindowTitle">
                     <property name="title" translatable="yes">Flashcards</property>
                   </object>
@@ -61,31 +47,6 @@
           <object class="AdwViewStack" id="stk_main">
             <child>
               <object class="AdwViewStackPage">
-                <property name="name">overview</property>
-                <property name="title" translatable="yes">Overview</property>
-                <property name="icon-name">go-home-symbolic</property>
-
-                <property name="child">
-                  <object class="GtkScrolledWindow">
-                    <property name="vexpand">true</property>
-                    
-                    <child>
-                      <object class="AdwClamp">
-                        <child>                        
-                          <object class="AdwStatusPage">
-                            <property name="title" translatable="yes">Overview</property>
-                            <property name="icon-name">go-home-symbolic</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </property>
-              </object>
-            </child>
-
-            <child>
-              <object class="AdwViewStackPage">
                 <property name="name">decks</property>
                 <property name="title" translatable="yes">Decks</property>
                 <property name="icon-name">flashcard-deck</property>
@@ -93,6 +54,7 @@
                 <property name="child">
                   <object class="GtkScrolledWindow">
                     <property name="vexpand">true</property>
+                    <property name="hscrollbar-policy">never</property>
 
                     <child>
                       <object class="AdwClamp">
@@ -107,6 +69,7 @@
                             <!-- <property name="max-children-per-line">2</property> -->
                             <property name="min-children-per-line">2</property>
                             <property name="selection-mode">none</property>
+                            <property name="halign">center</property>
 
                             <child>
                               <object class="FlashcardsDeck">
@@ -145,8 +108,12 @@
   <menu id="menu_app">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Preferences</attribute>
-        <attribute name="action" translatable="yes">app.preferences</attribute>
+        <attribute name="label" translatable="yes">Import Decks...</attribute>
+        <attribute name="action">app.export-decks</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Export Decks...</attribute>
+        <attribute name="action">app.import-decks</attribute>
       </item>
     </section>
     <section>

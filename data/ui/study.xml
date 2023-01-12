@@ -4,7 +4,7 @@
   <template class="FlashcardsStudyWindow" parent="AdwWindow">
     <property name="resizable">false</property>
     <property name="width-request">300</property>
-    <property name="height-request">400</property>
+    <property name="height-request">460</property>
 
     <style>
       <class name="devel"></class>
@@ -17,7 +17,7 @@
           <object class="AdwHeaderBar">
             <property name="title-widget">
               <object class="GtkLabel" id="lbl_remaining_card_num">
-                <property name="label" translatable="true">Card 0/5</property>
+                <property name="label" translatable="true">Card 1/5</property>
                 <style>
                   <class name="title"></class>
                 </style>
@@ -30,16 +30,96 @@
         </child>
 
         <child>
-          <object class="AdwCarousel">
-          
-          <child>
-            <object class="FlashcardsFlashcard">
-            </object>
-          </child>
+          <object class="GtkBox">
 
+            <property name="orientation">vertical</property>
+          
+            <child>
+              <object class="AdwCarousel" id="carousel">
+                <property name="allow-mouse-drag">false</property>
+                <property name="allow-scroll-wheel">false</property>
+                <child>
+                  <object class="FlashcardsFlashcard">
+                  </object>
+                </child>
+
+                <child>
+                  <object class="FlashcardsFlashcard">
+                  </object>
+                </child>
+
+                <child>
+                  <object class="FlashcardsFlashcard">
+                  </object>
+                </child>
+
+                <child>
+                  <object class="FlashcardsFlashcard">
+                  </object>
+                </child>
+
+                <child>
+                  <object class="FlashcardsFlashcard">
+                  </object>
+                </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkStack" id="stk_study_buttons">
+
+                <child>
+                  <object class="GtkButton" id="btn_show_answer">
+                    <property name="label">Show</property>
+                    <property name="halign">center</property>
+                    <property name="margin-start">20</property>
+                    <property name="margin-end">20</property>
+                    <property name="margin-bottom">20</property>
+
+                    <style>
+                      <class name="pill"></class>
+                    </style>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkBox" id="stk_pg_study_buttons">
+                    <property name="halign">center</property>
+                    <child>
+                      <object class="GtkButton" id="btn_add_to_repeat">
+                        <property name="label">Add to repeat</property>
+                        <property name="halign">center</property>
+                        <property name="margin-start">20</property>
+                        <property name="margin-end">20</property>
+                        <property name="margin-bottom">20</property>
+
+                        <style>
+                          <class name="pill"></class>
+                        </style>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="GtkButton" id="btn_next_flashcard">
+                        <property name="label">Next</property>
+                        <property name="halign">center</property>
+                        <property name="margin-start">20</property>
+                        <property name="margin-end">20</property>
+                        <property name="margin-bottom">20</property>
+
+                        <style>
+                          <class name="pill"></class>
+                          <class name="suggested-action"></class>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+              </object>
+            </child>
           </object>
         </child>
-
       </object>
     </child>
   </template>

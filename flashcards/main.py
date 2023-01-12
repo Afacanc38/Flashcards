@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-
-# SPDX-FileCopyrightText: Copyright 2021 Alperen İsa Nalbant
-# SPDX-License-Identifier: GPL-3.0-or-later
-
 import gi
 import sys
 from os.path import abspath, dirname, join
@@ -26,15 +22,92 @@ class FlashcardsDeck(Gtk.Box):
     lbl_card_num = Gtk.Template.Child('lbl_card_num')
     btn_study = Gtk.Template.Child('btn_study')
 
+    def __init__(self, **kwargs):
+        self.card_num = 0
+        self.set_card_num("5")
+
+    def set_card_num(self, card_num):
+        self.lbl_card_num.set_label(f'{card_num} cards')
+        self.card_num = card_num
+
+    def get_card_num(self):
+        return self.lbl_card_num.get_label()
+
 @Gtk.Template(resource_path='/io/github/afacanc38/flashcards/ui/study.xml')
 class FlashcardsStudyWindow(Adw.Window):
     __gtype_name__ = 'FlashcardsStudyWindow'
 
     lbl_remaining_card_num = Gtk.Template.Child('lbl_remaining_card_num')
+    carousel = Gtk.Template.Child('carousel')
+    btn_show_answer = Gtk.Template.Child('btn_show_answer')
+
+    btn_next_flashcard = Gtk.Template.Child('btn_next_flashcard')
+    btn_add_to_repeat = Gtk.Template.Child('btn_add_to_repeat')
+    stk_study_buttons = Gtk.Template.Child('stk_study_buttons')
+    stk_pg_study_buttons = Gtk.Template.Child('stk_pg_study_buttons')
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.card_num = self.carousel.get_n_pages()
+        self.position = int(self.carousel.get_position())
+
+        self.connect_signals()
+
+        self.set_card_num(self.position, self.card_num)
+
+        self.btn_show_answer.connect('clicked', self.on_btn_show_answer_clicked)
+
+    def connect_signals(self):
+        self.carousel.connect('page-changed', self.set_position)
+        self.btn_next_flashcard.connect('clicked',
+                                        self.on_btn_next_flashcard_clicked)
+
+    def set_card_num(self, position, card_num):
+        self.lbl_remaining_card_num.set_label(f'Card {position}/{card_num}')
+
+    def set_position(self, widget, event):
+        self.position = int(self.carousel.get_position())
+        self.lbl_remaining_card_num.set_label(f'Card {self.position + 1}/{self.card_num}')
+        if self.position == self.card_num -1:
+            self.btn_next_flashcard.set_label("Close")
+            self.btn_add_to_repeat.set_visible(False)
+
+    def on_btn_next_flashcard_clicked(self, button):
+        if self.position != self.card_num -1:
+            next_page = self.carousel.get_nth_page(self.position + 1)
+            self.carousel.scroll_to(next_page, animate=True)
+            self.stk_study_buttons.set_visible_child(self.btn_show_answer)
+        else:
+            self.close()
+
+    def on_btn_show_answer_clicked(self, button):
+        current_page_widget = self.carousel.get_nth_page(self.position)
+        self.stk_study_buttons.set_visible_child(self.stk_pg_study_buttons)
+        current_page_widget.show_answer = True
 
 @Gtk.Template(resource_path='/io/github/afacanc38/flashcards/ui/flashcard.xml')
 class FlashcardsFlashcard(Gtk.Box):
     __gtype_name__ = 'FlashcardsFlashcard'
+
+    rvl_answer = Gtk.Template.Child('rvl_answer')
+    lbl_front = Gtk.Template.Child('lbl_front')
+
+    _show_answer = False
+    GObject.Property(type=bool, default=False)
+
+    @property
+    def show_answer(self):
+        return self._show_answer
+
+    @show_answer.setter
+    def show_answer(self, value):
+        self._show_answer = value
+
+        if value:
+            self.rvl_answer.set_reveal_child(True)
+        else:
+            self.rvl_answer.set_reveal_child(False)
 
 class Application(Adw.Application):
     def __init__(self, *args, **kwargs):

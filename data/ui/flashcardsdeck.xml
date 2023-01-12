@@ -21,7 +21,7 @@
 
         <child>
           <object class="GtkLabel">
-            <property name="label">TeTeOS.Net GNOME PiluX Flashcards GNOME Circle</property>
+            <property name="label">İngilizce</property>
             <property name="wrap">true</property>
             <property name="lines">4</property>
             <property name="max-width-chars">20</property>
@@ -47,27 +47,9 @@
 
         <child>
           <object class="GtkBox">
-            <property name="orientation">vertical</property>
             <property name="vexpand">true</property>
             <property name="valign">end</property>
-            <property name="spacing">12</property>
-
-            <child>
-              <object class="GtkButton">
-                <property name="action-name">app.study</property>
-
-                <child>
-                  <object class="AdwButtonContent">
-                    <property name="icon-name">media-playback-start-symbolic</property>
-                    <property name="label" translatable="true">Exercise</property>
-                  </object>
-                </child>
-
-                <style>
-                  <class name="pill"></class>
-                </style>
-              </object>
-            </child>
+            <property name="spacing">6</property>
 
             <child>
               <object class="GtkButton" id="btn_study">
@@ -79,10 +61,21 @@
 
                 <child>
                   <object class="AdwButtonContent">
-                    <property name="icon-name">edit</property>
-                    <property name="label" translatable="true">Study</property>
+                    <property name="icon-name">document-edit-symbolic</property>
+                    <property name="label" translatable="true">Exercise</property>
                   </object>
                 </child>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkMenuButton" id="btn_edit">
+                <property name="icon-name">settings-symbolic</property>
+                <property name="menu-model">menu_edit_deck</property>
+
+                <style>
+                  <class name="circular"></class>
+                </style>
               </object>
             </child>
           </object>
@@ -90,4 +83,23 @@
       </object>
     </child>
   </template>
+
+  <menu id="menu_edit_deck">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Edit cards...</attribute>
+        <attribute name="action">app.rename_card</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Rename...</attribute>
+        <attribute name="action">app.rename_card</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Remove...</attribute>
+        <attribute name="action">app.rename_card</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>

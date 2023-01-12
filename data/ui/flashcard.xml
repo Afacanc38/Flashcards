@@ -11,7 +11,51 @@
     <property name="margin-bottom">20</property>
 
     <style>
-      <class name="card"></class>
+      <class name="card">
+      
+      </class>
     </style>
+
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="vexpand">true</property>
+
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            
+            <child>
+              <object class="GtkLabel" id="lbl_front">
+                <property name="label">Colour of blood</property>
+                <property name="wrap">true</property>
+                <property name="justify">center</property>
+                <property name="margin-start">6</property>
+                <property name="margin-end">6</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">6</property>
+                <style>
+                  <class name="title-1"></class>
+                </style>
+              </object>
+            </child>
+
+            <child>
+              <object class="GtkRevealer" id="rvl_answer">
+                <property name="margin-bottom">20</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_back">
+                    <property name="wrap">true</property>
+                    <property name="justify">center</property>
+                    <property name="ellipsize">end</property>
+                    <property name="label">Red</property>
+                    <property name="max-width-chars">20</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
   </template>
 </interface>
