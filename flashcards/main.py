@@ -64,6 +64,14 @@ class FlashcardsStudyWindow(Adw.Window):
                                         self.on_btn_add_to_repeat_clicked)
         self.btn_show_answer.connect('clicked', self.on_btn_show_answer_clicked)
 
+    def switch_to_next_page(self):
+        if self.position != self.card_num -1:
+            next_page = self.carousel.get_nth_page(self.position + 1)
+            self.carousel.scroll_to(next_page, animate=True)
+            self.stk_study_buttons.set_visible_child(self.btn_show_answer)
+        else:
+            self.close()
+
     def set_card_num(self, position, card_num):
         self.lbl_remaining_card_num.set_label(f'Card {self.position + 1}/{card_num}')
 
@@ -74,12 +82,7 @@ class FlashcardsStudyWindow(Adw.Window):
             self.btn_next_flashcard.set_label("Close")
 
     def on_btn_next_flashcard_clicked(self, button):
-        if self.position != self.card_num -1:
-            next_page = self.carousel.get_nth_page(self.position + 1)
-            self.carousel.scroll_to(next_page, animate=True)
-            self.stk_study_buttons.set_visible_child(self.btn_show_answer)
-        else:
-            self.close()
+        self.switch_to_next_page()
 
     def on_btn_show_answer_clicked(self, button):
         current_page_widget = self.carousel.get_nth_page(self.position)
@@ -87,12 +90,7 @@ class FlashcardsStudyWindow(Adw.Window):
         current_page_widget.show_answer = True
 
     def on_btn_add_to_repeat_clicked(self, button):
-        if self.position != self.card_num -1:
-            next_page = self.carousel.get_nth_page(self.position + 1)
-            self.carousel.scroll_to(next_page, animate=True)
-            self.stk_study_buttons.set_visible_child(self.btn_show_answer)
-        else:
-            self.close()
+        self.switch_to_next_page()
 
 @Gtk.Template(resource_path='/io/github/afacanc38/flashcards/ui/flashcard.xml')
 class FlashcardsFlashcard(Gtk.Box):
