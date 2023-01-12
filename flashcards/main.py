@@ -56,15 +56,14 @@ class FlashcardsStudyWindow(Adw.Window):
 
         self.set_card_num(self.position, self.card_num)
 
-        self.btn_show_answer.connect('clicked', self.on_btn_show_answer_clicked)
-
     def connect_signals(self):
         self.carousel.connect('page-changed', self.set_position)
         self.btn_next_flashcard.connect('clicked',
                                         self.on_btn_next_flashcard_clicked)
+        self.btn_show_answer.connect('clicked', self.on_btn_show_answer_clicked)
 
     def set_card_num(self, position, card_num):
-        self.lbl_remaining_card_num.set_label(f'Card {position}/{card_num}')
+        self.lbl_remaining_card_num.set_label(f'Card {self.position + 1}/{card_num}')
 
     def set_position(self, widget, event):
         self.position = int(self.carousel.get_position())
@@ -92,6 +91,7 @@ class FlashcardsFlashcard(Gtk.Box):
 
     rvl_answer = Gtk.Template.Child('rvl_answer')
     lbl_front = Gtk.Template.Child('lbl_front')
+    lbl_back = Gtk.Template.Child('lbl_back')
 
     _show_answer = False
 
@@ -107,6 +107,37 @@ class FlashcardsFlashcard(Gtk.Box):
             self.rvl_answer.set_reveal_child(True)
         else:
             self.rvl_answer.set_reveal_child(False)
+
+    # Setup Flashcard
+    _front_label = ""
+
+    @GObject.Property(type=str, default="")
+    def front_label(self):
+        return self._front_label
+
+    @front_label.setter
+    def front_label(self, value):
+        self._front_label = value
+        self.lbl_front.set_label(value)
+
+    def set_front_label(self, value):
+        self._front_label = value
+        self.lbl_front.set_label(value)
+
+    _back_label = ""
+
+    @GObject.Property(type=str, default="")
+    def back_label(self):
+        return self._back_label
+
+    @back_label.setter
+    def front_label(self, value):
+        self._back_label = value
+        self.lbl_back.set_label(value)
+
+    def set_back_label(self, value):
+        self._back_label = value
+        self.lbl_back.set_label(value)
 
 class Application(Adw.Application):
     def __init__(self, *args, **kwargs):
