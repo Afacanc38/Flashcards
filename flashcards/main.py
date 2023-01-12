@@ -60,6 +60,8 @@ class FlashcardsStudyWindow(Adw.Window):
         self.carousel.connect('page-changed', self.set_position)
         self.btn_next_flashcard.connect('clicked',
                                         self.on_btn_next_flashcard_clicked)
+        self.btn_add_to_repeat.connect('clicked',
+                                        self.on_btn_add_to_repeat_clicked)
         self.btn_show_answer.connect('clicked', self.on_btn_show_answer_clicked)
 
     def set_card_num(self, position, card_num):
@@ -84,6 +86,14 @@ class FlashcardsStudyWindow(Adw.Window):
         current_page_widget = self.carousel.get_nth_page(self.position)
         self.stk_study_buttons.set_visible_child(self.stk_pg_study_buttons)
         current_page_widget.show_answer = True
+
+    def on_btn_add_to_repeat_clicked(self, button):
+        if self.position != self.card_num -1:
+            next_page = self.carousel.get_nth_page(self.position + 1)
+            self.carousel.scroll_to(next_page, animate=True)
+            self.stk_study_buttons.set_visible_child(self.btn_show_answer)
+        else:
+            self.close()
 
 @Gtk.Template(resource_path='/io/github/afacanc38/flashcards/ui/flashcard.xml')
 class FlashcardsFlashcard(Gtk.Box):
@@ -205,3 +215,4 @@ class Application(Adw.Application):
 if __name__ == '__main__':
     app = Application(application_id = 'io.io.github.afacanc38.flashcards')
     app.run()
+
