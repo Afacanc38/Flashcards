@@ -5,11 +5,14 @@ from os.path import abspath, dirname, join
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Gtk, Adw, GLib, Gio, Gdk, GObject
+import flashcardapi
 
 APP_DIR = '/'.join(abspath(dirname(__file__)).split('/')[:-1])
 
 resource = Gio.Resource.load(APP_DIR + '/data/io.github.afacanc38.flashcards.gresource')
 Gio.Resource._register(resource)
+
+decks = [flashcardapi.Deck("İngilizce"), flashcardapi.Deck("Zort zort")]
 
 from window import FlashcardsWindow
 from deck import FlashcardsDeck

@@ -47,6 +47,38 @@
           <object class="AdwViewStack" id="stk_main">
             <child>
               <object class="AdwViewStackPage">
+                <property name="name">quickstart</property>
+                <property name="title">Quickstart</property>
+                <property name="icon-name">flashcard-deck</property>
+
+                <property name="child">
+                  <object class="AdwStatusPage">
+                    <property name="title">Welcome</property>
+                    <property name="description">Create a deck to get started!</property>
+                    <property name="icon-name">flashcard-deck</property>                    
+                    <property name="margin-start">20</property>
+                    <property name="margin-end">20</property>
+                    <property name="margin-top">20</property>
+                    <property name="margin-bottom">20</property>
+
+                    <property name="child">
+                      <object class="GtkButton" id="btn_quickstart_new_deck">
+                        <property name="label">New Deck</property>
+                        <property name="halign">center</property>
+                        
+                        <style>
+                          <class name="pill"></class>
+                          <class name="suggested-action"></class>
+                        </style>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwViewStackPage">
                 <property name="name">decks</property>
                 <property name="title" translatable="yes">Decks</property>
                 <property name="icon-name">flashcard-deck</property>
