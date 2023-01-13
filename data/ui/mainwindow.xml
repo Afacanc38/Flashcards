@@ -65,6 +65,7 @@
                       <object class="GtkButton" id="btn_quickstart_new_deck">
                         <property name="label">New Deck</property>
                         <property name="halign">center</property>
+                        <property name="action-name">app.newdeck</property>
                         
                         <style>
                           <class name="pill"></class>

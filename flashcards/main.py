@@ -18,6 +18,7 @@ from window import FlashcardsWindow
 from deck import FlashcardsDeck
 from study import FlashcardsStudyWindow
 from flashcard import FlashcardsFlashcard
+from createdeckdialog import FlashcardsNewDeckDialog
 
 class Application(Adw.Application):
     def __init__(self, *args, **kwargs):
@@ -36,6 +37,10 @@ class Application(Adw.Application):
 
         act = Gio.SimpleAction(name='study')
         act.connect('activate', self.on_study)
+        self.add_action(act)
+
+        act = Gio.SimpleAction(name='newdeck')
+        act.connect('activate', self.on_newdeck)
         self.add_action(act)
 
         self.set_accels_for_action("window.close", ("<Ctrl>q","<Ctrl>w"))
@@ -81,6 +86,11 @@ class Application(Adw.Application):
         help.set_transient_for(self.get_active_window())
         help.present()
 
+    def on_newdeck(self, action, param):
+        nd = FlashcardsNewDeckDialog()
+        nd.set_transient_for(self.get_active_window())
+        nd.set_modal(True)
+        nd.present()
 
 if __name__ == '__main__':
     app = Application(application_id = 'io.io.github.afacanc38.flashcards')
