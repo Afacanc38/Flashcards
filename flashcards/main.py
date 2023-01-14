@@ -18,7 +18,7 @@ from window import FlashcardsWindow
 from deck import FlashcardsDeck
 from study import FlashcardsStudyWindow
 from flashcard import FlashcardsFlashcard
-from createdeckdialog import FlashcardsNewDeckDialog
+from editdeckdialog import FlashcardsEditDeckDialog
 
 class Application(Adw.Application):
     def __init__(self, *args, **kwargs):
@@ -87,10 +87,10 @@ class Application(Adw.Application):
         help.present()
 
     def on_newdeck(self, action, param):
-        nd = FlashcardsNewDeckDialog()
-        nd.set_transient_for(self.get_active_window())
-        nd.set_modal(True)
-        nd.present()
+        ed = FlashcardsEditDeckDialog()
+        ed.set_transient_for(self.get_active_window())
+        ed.set_modal(True)
+        ed.present()
 
 if __name__ == '__main__':
     app = Application(application_id = 'io.io.github.afacanc38.flashcards')
