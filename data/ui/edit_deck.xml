@@ -62,12 +62,6 @@
                     </child>
                   </object>
                 </child>
-
-                <child>
-                  <object class="AdwPreferencesGroup" id="prfg_edit_flashcards">
-                    <property name="title" translatable="yes">Edit Flashcards</property>
-                  </object>
-                </child>
               </object>
             </child>
           </object>
