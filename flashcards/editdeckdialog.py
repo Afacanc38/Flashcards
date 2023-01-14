@@ -15,8 +15,5 @@ Gio.Resource._register(resource)
 class FlashcardsEditDeckDialog(Adw.Window):
     __gtype_name__ = 'FlashcardsEditDeckDialog'
 
-    row_add_flashcard = Gtk.Template.Child('row_add_flashcard')
-    prfg_edit_flashcards = Gtk.Template.Child('prfg_edit_flashcards')
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
