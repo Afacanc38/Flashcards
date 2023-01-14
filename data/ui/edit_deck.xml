@@ -15,7 +15,7 @@
             <property name="centering-policy">strict</property>
 
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="btn_apply_changes">
                 <property name="label" translatable="yes">Create</property>
                 <property name="sensitive">false</property>
                 <style>
@@ -56,7 +56,7 @@
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
-                      <object class="AdwEntryRow">
+                      <object class="AdwEntryRow" id="row_deck_name">
                         <property name="title" translatable="yes">Deck name</property>
                       </object>
                     </child>
@@ -68,13 +68,13 @@
                     <property name="title" translatable="yes">Create First Flashcard</property>
 
                     <child>
-                      <object class="AdwEntryRow" id="row_add_flashcard_front">
+                      <object class="AdwEntryRow" id="row_flashcard_front">
                         <property name="title" translatable="yes">Front</property>
                       </object>
                     </child>
 
                     <child>
-                      <object class="AdwEntryRow" id="row_add_flashcard_back">
+                      <object class="AdwEntryRow" id="row_flashcard_back">
                         <property name="title" translatable="yes">Back</property>
                       </object>
                     </child>
