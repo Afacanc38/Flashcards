@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"></requires>
+  <template class="FlashcardsEditDeckDialog" parent="AdwWindow">
+    <property name="width-request">400</property>
+    <property name="height-request">250</property>
+    <property name="resizable">false</property>
+
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+
+        <child>
+          <object class="AdwHeaderBar">
+            <property name="centering-policy">strict</property>
+
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">Create</property>
+                <property name="sensitive">false</property>
+                <style>
+                  <class name="suggested-action"></class>
+                </style>
+              </object>
+            </child>
+
+            <property name="title-widget">
+              <object class="AdwSqueezer">
+                <property name="margin-start">20</property>
+                <property name="margin-end">20</property>
+
+                <child>
+                  <object class="AdwWindowTitle">
+                    <property name="title" translatable="yes">New Deck</property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="vexpand">true</property>
+
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <property name="spacing">12</property>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwEntryRow">
+                        <property name="title" translatable="yes">Deck name</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup" id="prfg_edit_flashcards">
+                    <property name="title" translatable="yes">Edit Flashcards</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
