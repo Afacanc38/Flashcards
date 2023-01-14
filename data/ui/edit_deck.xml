@@ -65,7 +65,7 @@
 
                 <child>
                   <object class="AdwPreferencesGroup" id="prfg_edit_flashcards">
-                    <property name="title" translatable="yes">Create first Flashcard</property>
+                    <property name="title" translatable="yes">Create First Flashcard</property>
 
                     <child>
                       <object class="AdwEntryRow" id="row_add_flashcard_front">
