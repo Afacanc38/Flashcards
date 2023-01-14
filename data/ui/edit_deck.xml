@@ -62,6 +62,27 @@
                     </child>
                   </object>
                 </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup" id="prfg_edit_flashcards">
+                    <property name="title" translatable="yes">Create first Flashcard</property>
+
+                    <child>
+                      <object class="AdwEntryRow" id="row_add_flashcard_front">
+                        <property name="show-apply-button">true</property>
+                        <property name="title" translatable="yes">Front</property>
+                      </object>
+                    </child>
+
+                    <child>
+                      <object class="AdwEntryRow" id="row_add_flashcard_back">
+                        <property name="show-apply-button">true</property>
+                        <property name="title" translatable="yes">Front</property>
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
               </object>
             </child>
           </object>
