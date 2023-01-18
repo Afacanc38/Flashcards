@@ -31,10 +31,7 @@ class FlashcardsEditDeckDialog(Adw.Window):
             widget.add_css_class('error')
         else:
             widget.remove_css_class('error')
-            if self.check_is_filled(self.row_deck_name) == True and \
-            self.check_is_filled(self.row_flashcard_front) == True and \
-            self.check_is_filled(self.row_flashcard_back) == True:
-                self.btn_apply_changes.set_sensitive(True)
+            self.activate_apply_button()
             
     def check_is_filled(self, widget):
         if widget.get_text().isspace() == True or\
@@ -42,3 +39,9 @@ class FlashcardsEditDeckDialog(Adw.Window):
             return False
         else:
             return True
+
+    def activate_apply_button(self):
+        if self.check_is_filled(self.row_deck_name) == True and \
+        self.check_is_filled(self.row_flashcard_front) == True and \
+        self.check_is_filled(self.row_flashcard_back) == True:
+            self.btn_apply_changes.set_sensitive(True)
