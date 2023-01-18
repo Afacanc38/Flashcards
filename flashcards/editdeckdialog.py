@@ -25,15 +25,20 @@ class FlashcardsEditDeckDialog(Adw.Window):
         self.row_deck_name.connect('changed', self.on_invaild)
         self.row_flashcard_front.connect('changed', self.on_invaild)
         self.row_flashcard_back.connect('changed', self.on_invaild)
-        self.row_deck_name.connect_after('changed', self.on_invaild)
-        self.row_flashcard_front.connect_after('changed', self.on_invaild)
-        self.row_flashcard_back.connect_after('changed', self.on_invaild)
 
     def on_invaild(self, widget):
-        if widget.get_text().isspace() == True or\
-        widget.get_text() == '':
+        if self.check_is_filled(widget) == False:
             widget.add_css_class('error')
         else:
             widget.remove_css_class('error')
-    def activate_apply_button(self, widget):
-        pass
+            if self.check_is_filled(self.row_deck_name) == True and \
+            self.check_is_filled(self.row_flashcard_front) == True and \
+            self.check_is_filled(self.row_flashcard_back) == True:
+                self.btn_apply_changes.set_sensitive(True)
+            
+    def check_is_filled(self, widget):
+        if widget.get_text().isspace() == True or\
+        widget.get_text() == '':
+            return False
+        else:
+            return True
