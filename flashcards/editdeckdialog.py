@@ -19,6 +19,22 @@ class FlashcardsEditDeckDialog(Adw.Window):
     row_flashcard_front = Gtk.Template.Child('row_flashcard_front')
     row_flashcard_back = Gtk.Template.Child('row_flashcard_back')
     btn_apply_changes = Gtk.Template.Child('btn_apply_changes')
+    lbl_mode = Gtk.Template.Child('lbl_mode')
+
+    _mode = 'new'
+
+    @GObject.Property(type=str, default='new')
+    def mode(self):
+        return self._mode
+
+    @mode.setter
+    def mode(self, mode):
+        self._mode = mode
+
+        if mode == 'edit':
+            self.lbl_mode.set_title('Edit Deck')
+        if mode == 'new':
+            self.lbl_mode.set_title('New Deck')
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

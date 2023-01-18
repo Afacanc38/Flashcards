@@ -90,6 +90,7 @@ class Application(Adw.Application):
         ed = FlashcardsEditDeckDialog()
         ed.set_transient_for(self.get_active_window())
         ed.set_modal(True)
+        ed.mode = 'new'
         ed.present()
 
 if __name__ == '__main__':

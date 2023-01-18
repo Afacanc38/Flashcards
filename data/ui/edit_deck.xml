@@ -30,7 +30,7 @@
                 <property name="margin-end">20</property>
 
                 <child>
-                  <object class="AdwWindowTitle">
+                  <object class="AdwWindowTitle" id="lbl_mode">
                     <property name="title" translatable="yes">New Deck</property>
                   </object>
                 </child>
