@@ -16,6 +16,8 @@ class FlashcardsWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'FlashcardsWindow'
 
     btn_quickstart_new_deck = Gtk.Template.Child()
+    stk_main = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.stk_main.set_visible_child_name('decks')

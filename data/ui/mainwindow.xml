@@ -106,17 +106,11 @@
 
                             <child>
                               <object class="FlashcardsDeck">
-                                <style>
-                                  <class name="card"></class>
-                                </style>
                               </object>
                             </child>
 
                             <child>
                               <object class="FlashcardsDeck">
-                                <style>
-                                  <class name="card"></class>
-                                </style>
                               </object>
                             </child>
 

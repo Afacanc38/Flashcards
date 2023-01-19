@@ -20,7 +20,7 @@
         <property name="halign">center</property>
 
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="lbl_deck_name">
             <property name="label">İngilizce</property>
             <property name="wrap">true</property>
             <property name="lines">4</property>

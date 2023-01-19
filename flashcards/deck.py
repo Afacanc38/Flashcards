@@ -16,15 +16,29 @@ class FlashcardsDeck(Gtk.Box):
     __gtype_name__ = 'FlashcardsDeck'
 
     lbl_card_num = Gtk.Template.Child('lbl_card_num')
+    lbl_deck_name = Gtk.Template.Child('lbl_deck_name')
     btn_study = Gtk.Template.Child('btn_study')
 
+    _deck_name = 'undefined'
+    _card_num = 0
+
+    @GObject.Property(type=str, default='undefined')
+    def deck_name(self):
+        return self._deck_name
+
+    @deck_name.setter
+    def deck_name(self, name):
+        self._name = name
+        self.lbl_deck_name.set_label(name)
+
+    @GObject.Property(type=int, default=0)
+    def card_num(self):
+        return self._card_num
+
+    @card_num.setter
+    def card_num(self, card_num):
+        self._card_num = card_num
+        self.lbl_card_num.set_label(card_num)
+
     def __init__(self, **kwargs):
-        self.card_num = 0
-        self.set_card_num("5")
-
-    def set_card_num(self, card_num):
-        self.lbl_card_num.set_label(f'{card_num} cards')
-        self.card_num = card_num
-
-    def get_card_num(self):
-        return self.lbl_card_num.get_label()
+        super().__init__(**kwargs)
