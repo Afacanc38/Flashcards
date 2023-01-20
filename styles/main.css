@@ -30,7 +30,7 @@ body {
 
 section {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 99vw;
 
   display: flex;
   flex-direction: column;
