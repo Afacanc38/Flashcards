@@ -124,6 +124,20 @@
       </p>
     </footer>
   </main>
+  <script>
+    console.info("Javascript kodu size biraz garip geldiyse kusura bakmayın. Epey yabancıyım şu şeye.");
+    let buttons = document.querySelectorAll("button.suggested");
+    for (x = 0; x < buttons.length; x++) {
+      let button = buttons[x];
+      
+      button.onmousemove = e => {
+        const rect = button.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+        button.style.setProperty("--hover-x", `${x}px`);
+        button.style.setProperty("--hover-y", `${y}px`);
+      }
+    }
+  </script>
 </body>
-
 </html>
