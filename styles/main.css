@@ -4,6 +4,8 @@
   --color3: #f4989c; 
   --color4: #ebd2b4; 
   --color5: #acecf7;
+
+  scroll-behavior: smooth;
 }
 
 * {
