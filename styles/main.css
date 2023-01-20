@@ -144,3 +144,7 @@ footer {
 a {
   color: var(--color5)
 }
+
+section.sec3 > .center {
+  margin: 20px;
+}
