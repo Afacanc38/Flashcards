@@ -43,6 +43,7 @@ section {
   justify-content: center;
 
   gap: 12px;
+  margin: 20px;
 }
 
 .center:not(.banner > .center, footer > .center) {
@@ -100,7 +101,7 @@ section.banner {
   border-bottom: 1px solid rgba(0, 0, 0, .7);
 }
 
-section.banner a {
+a {
   color: black;
 }
 
@@ -126,13 +127,17 @@ section.sec2 {
   max-width: 900px;
 }
 
-section.sec3 {
+section.sec4 {
   background: var(--color4);
 }
 
-section.sec3 > .center {
+section.sec3 > .center, section.sec4 > .center {
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+section.sec3 {
+  background: var(--color5);
 }
 
 footer {
@@ -141,10 +146,6 @@ footer {
   color: white;
 }
 
-a {
+footer a {
   color: var(--color5)
-}
-
-section.sec3 > .center {
-  margin: 20px;
 }
