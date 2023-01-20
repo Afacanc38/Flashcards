@@ -1,0 +1,146 @@
+:root {
+  --color1:#d6f6dd;
+  --color2: #dac4f7; 
+  --color3: #f4989c; 
+  --color4: #ebd2b4; 
+  --color5: #acecf7;
+}
+
+* {
+  margin: 0;
+}
+
+/*
+:root {
+  --color1: #0d312e; 
+  --color2: #0e1d45;
+  --color3: #250406;
+  --color4: #402b11;
+  --color5: #063038;
+}
+*/
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+
+  background-color: var(--color2);
+}
+
+section {
+  min-height: 100vh;
+  min-width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center, .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.center:not(.banner > .center, footer > .center) {
+  min-height: 100vh;
+}
+
+section.sec1 .logo {
+  width: 256px;
+  height: 256px;
+}
+
+.title, .subtitle {
+  text-align: center;
+  max-width: 700px;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+}
+
+button {
+  background-color: rgba(255, 255, 255, .3);
+  border: none;
+  border-radius: 90px;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: scale ease-in-out 200ms,
+              background ease-in-out 200ms;
+}
+
+button:hover {
+  scale: 1.05;
+}
+
+button:active {
+  scale: 0.95;
+}
+
+button.suggested {
+  background-color: black;
+  color: white;
+}
+
+section.banner {
+  background-color: white;
+  min-height: 10vh;
+
+  box-shadow: inset 0 -10px 20px 0 rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(0, 0, 0, .7);
+}
+
+section.banner a {
+  color: black;
+}
+
+section.banner p {
+  padding: 20px;
+}
+
+p {
+  font-size: 1.1rem;
+  text-align: center;
+
+  max-width: 700px;
+
+  padding: 0 20px;
+}
+
+section.sec2 {
+  background-color: var(--color1);
+}
+
+.screenshots {
+  width: 100vw;
+  max-width: 900px;
+}
+
+section.sec3 {
+  background: var(--color4);
+}
+
+section.sec3 > .center {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+footer {
+  padding: 12px;
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: var(--color5)
+}
